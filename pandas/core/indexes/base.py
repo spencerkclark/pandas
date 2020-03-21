@@ -3078,6 +3078,7 @@ class Index(IndexOpsMixin, PandasObject):
         left_indexer = self.get_indexer(target, "pad", limit=limit)
         right_indexer = self.get_indexer(target, "backfill", limit=limit)
 
+        target = np.asarray(target)
         left_distances = abs(self.values[left_indexer] - target)
         right_distances = abs(self.values[right_indexer] - target)
 
